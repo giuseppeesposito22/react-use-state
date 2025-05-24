@@ -4,17 +4,20 @@ import languages from "./data/languages";
 import Header from "./components/Header";
 
 function App() {
-  const [selectedLang, setSelectedLang] = useState(languages[0]);
+  const [selectedLang, setSelectedLang] = useState(0);
 
   const buttons = languages.map((lang) => (
     <button
-      className="btn btn-primary"
+      className={
+        selectedLang.id === lang.id ? "btn btn-warning" : "btn btn-primary"
+      }
       key={lang.id}
       onClick={() => setSelectedLang(lang)}
     >
       {lang.title}
     </button>
   ));
+
   return (
     <>
       <Header />
@@ -23,8 +26,14 @@ function App() {
 
         <div className="card">
           <div className="card-body">
-            <h5 className="card-title">{selectedLang.title}</h5>
-            <p className="card-text">{selectedLang.description}</p>
+            <h5 className="card-title">
+              {selectedLang
+                ? selectedLang.title
+                : "Nessun linguaggio selezionato"}
+            </h5>
+            <p className="card-text">
+              {selectedLang ? selectedLang.description : ""}
+            </p>
           </div>
         </div>
       </div>
