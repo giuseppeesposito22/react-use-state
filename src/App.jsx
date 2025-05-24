@@ -2,20 +2,17 @@
 import { useState } from "react";
 import languages from "./data/languages";
 import Header from "./components/Header";
+import Button from "./components/Button";
 
 function App() {
   const [selectedLang, setSelectedLang] = useState(0);
 
   const buttons = languages.map((lang) => (
-    <button
-      className={
-        selectedLang.id === lang.id ? "btn btn-warning" : "btn btn-primary"
-      }
-      key={lang.id}
-      onClick={() => setSelectedLang(lang)}
-    >
-      {lang.title}
-    </button>
+    <Button
+      currentLang={lang}
+      handleClick={() => setSelectedLang(lang)}
+      isSelected={selectedLang.id === lang.id}
+    />
   ));
 
   return (
