@@ -1,0 +1,17 @@
+button {
+  margin: 0 1rem;
+}
+
+header {
+  text-align: center;
+  background-color: rgb(209, 208, 208);
+  padding: 1rem 0;
+}
+
+.container {
+  margin-top: 1rem;
+}
+
+.card {
+  margin-top: 1rem;
+}
